@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Noto Serif Bengali", serif;
+  --font-body: "Hind Siliguri", system-ui, sans-serif;
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-paper font-body text-plum-deep antialiased;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  h1, h2, h3 { @apply font-display font-bold text-plum-deep; line-height: 1.3; }
+  :focus-visible { outline: 3px solid #890E4F; outline-offset: 2px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+}
+
+@layer components {
+  .page { @apply mx-auto w-full max-w-page px-4 sm:px-6; }
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 text-[15px] font-semibold transition-colors;
+  }
+  .btn-primary { @apply bg-plum text-sun hover:bg-plum-deep; }
+  .btn-sun { @apply bg-sun text-plum hover:bg-sun-soft; }
+  .btn-outline { @apply border-2 border-plum text-plum hover:bg-plum-soft; }
+  .btn:disabled, .btn[aria-disabled="true"] {
+    @apply cursor-not-allowed border-line bg-plum-soft/60 text-plum/50 hover:bg-plum-soft/60;
+  }
+  .field {
+    @apply min-h-[44px] w-full rounded-full border border-line bg-white px-4 text-[15px] text-plum-deep placeholder:text-plum/40;
+  }
+  .section-title { @apply text-2xl sm:text-3xl; }
+}
